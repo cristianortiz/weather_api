@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Error from "./Error";
+import PropTypes from "prop-types";
 
 const Form = ({ search, handleSearch, handleRequest }) => {
   //form useState hook to keep track of the user inputs in the form
@@ -37,18 +39,16 @@ const Form = ({ search, handleSearch, handleRequest }) => {
     handleRequest(true);
 
     //passing the data form to App component trough their state handleFunction
-    /*handlesearch({
+    handleSearch({
       ...search,
       city: city,
       country: country,
-    });*/
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {error ? (
-        <p className="red darken-4 error">All fields are mandatory</p>
-      ) : null}
+      {error ? <Error msg="All fields are mandatory" /> : null}
       <div className="input-field col 12">
         <input
           type="text"
@@ -88,5 +88,10 @@ const Form = ({ search, handleSearch, handleRequest }) => {
     </form>
   );
 };
-
+//proptyopes for types check un component props
+Form.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  handleRequest: PropTypes.func.isRequired,
+  search: PropTypes.object.isRequired,
+};
 export default Form;
