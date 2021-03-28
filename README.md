@@ -1,4 +1,4 @@
-# Simple React API App Wheather
+# Simple React App to show Weather info from public API
 
 This app use the public API from open weather to show temperature info from a especific location choose by the user
 
