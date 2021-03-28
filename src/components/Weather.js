@@ -30,7 +30,7 @@ const Weather = ({ result }) => {
     </div>
   );
 };
-//proptyopes for types check un component props
+//proptyopes for types check of component props
 Weather.propTypes = {
   result: PropTypes.object.isRequired,
 };
